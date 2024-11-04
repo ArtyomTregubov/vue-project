@@ -2,34 +2,33 @@
 export default {
   data() {
     return {
-      info: 'Title!',
-      someInfo: 'Anons of message'
+      users: [],
+      userName: '',
+      userPass: '',
+      userEmail: ''
     }
   }, 
   methods: {
-    userData(param) {
-      //this.someInfo = 'Some new'
-      this.info = param
+    sendData() {
+      this.users.push({
+        name: this.userName,
+        pass: this.userPass,
+        email: this.userEmail
+
+      })
     }
   }
 }
 </script>
 
 <template>
-  <h3>{{ info }}</h3>
-  <p>{{ someInfo }}</p>
-
-  <button type="button" @click="userData('Some new')">Отправить</button>
+  <input type="text" v-model="userName" placeholder="Имя"/>
+  <input type="password" v-model="userPass" placeholder="Пароль"/>
+  <input type="email" v-model="userEmail" placeholder="Email"/>
+  <button @click="sendData()">Отправить</button>
+  <p>{{ users }}</p>
 </template>
 
 <style scoped>
-
-h3 {
-  font-weight: lighter;
-}
-
-p {
-  color: red;
-}
 
 </style>
