@@ -38,6 +38,7 @@ export default {
 <template>
   <main className="main">
     <form>
+      <h2 className="form__title">Форма</h2>
       <input className="form__input" type="text" v-model="userName" placeholder="Имя"/>
       <input className="form__input" type="password" v-model="userPass" placeholder="Пароль"/>
       <input className="form__input" type="email" v-model="userEmail" placeholder="Email"/>
@@ -66,6 +67,11 @@ form {
   flex-direction: column;
 }
 
+.form__title {
+display: flex;
+justify-content: center;
+}
+
 .form__input {
   width: 300px;
   height: 50px;
@@ -76,6 +82,7 @@ form {
 button {
   border: 1px solid #1da654;
   height: 54px;
+  border-radius: 2px;
   background-color: #5bf080;
 }
 
