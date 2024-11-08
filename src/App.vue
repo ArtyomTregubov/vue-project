@@ -1,5 +1,8 @@
 <script>
+import User from './components/User.vue';
+
 export default {
+  components: { User },
   data() {
     return {
       users: [],
@@ -30,6 +33,9 @@ export default {
         email: this.userEmail
 
       })
+    },
+    deleteUser(index) {
+      this.users.splice(index, 1);
     }
   }
 }
@@ -46,10 +52,7 @@ export default {
       <p className="error">{{ error }}</p>
     </form>
     
-    <div v-for="(el, index) in users" :key="index">
-      <h3>{{ el.name }}</h3>
-      <P>{{ el.email }} - <b>{{ el.pass }}</b></P>
-    </div>
+    <User v-for="(el, index) in users" :key="index" :user="el" :index="index" :deleteUser="deleteUser"/>
   </main>
 </template>
 
@@ -70,6 +73,7 @@ form {
 .form__title {
 display: flex;
 justify-content: center;
+font-family: math;
 }
 
 .form__input {
@@ -77,6 +81,8 @@ justify-content: center;
   height: 50px;
   margin: 0 0 10px;
   padding: 0 0 0 10px;
+  font-family: math;
+  font-size: 16px;
 }
 
 button {
@@ -84,6 +90,9 @@ button {
   height: 54px;
   border-radius: 2px;
   background-color: #5bf080;
+  font-family: math;
+  font-size: 19px;
+  color: #326856;
 }
 
 .error {
